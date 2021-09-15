@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Tính điểm trung bình</title>
+</head>
+<body>
+    <div class="container-fluid">
+    	<h1 class="text-center">Class Marksheet</h1>
+       <!--mẫu form này để điền tên và điểm môn học của sinh viên-->
+        <form action="/" method="GET">
+            <div class="form-group form-row mx-auto" id="name-group">
+            	<label for="studentName" class="col-sm-2 offset-sm-3 col-form-label font-weight-bold">Họ & Tên</label>
+                <div class="col-sm-4">                
+                    <input class="form-control form-control-sm" type="text" name="marksheetInput" id="studentName">
+                </div>
+            </div>
+            <div class="form-group form-row" id="math-group">
+                <label for="mathScore" class="col-sm-2 offset-sm-3 col-form-label font-weight-bold">Điểm Toán</label>
+                <div class="col-sm-4">                
+                    <input class="form-control form-control-sm" type="number" name="marksheetInput" id="mathScore">
+                </div>
+            </div>
+            <div class="form-group form-row" id="physical-group">
+                <label for="physicalScore" class="col-sm-2 offset-sm-3 col-form-label font-weight-bold">Điểm Lý</label>
+                <div class="col-sm-4">            
+                    <input class="form-control form-control-sm" type="number" name="marksheetInput" id="physicalScore">
+                </div>
+            </div>
+            <div class="form-group form-row" id="chemistry-group">
+                <label for="chemistryScore" class="col-sm-2 offset-sm-3 col-form-label font-weight-bold">Điểm Hóa</label>
+                <div class="col-sm-4">            
+                    <input class="form-control form-control-sm" type="number" name="marksheetInput" id="chemistryScore">
+                </div>
+            </div>
+            <div class="form-row mb-4">
+                <div class="col-sm-6 offset-sm-3 text-center">
+                    <input class="btn btn-success font-weight-bold" type="button" value="Nhập" onclick="addStudent()">
+                </div>
+            </div>
+        </form>
+       
+        <!-- Bảng hiển thị thông tin sinh viên từ kết quả nhập vào -->
+        <div class="table-responsive-md">
+                <table class="table table-striped table-bordered table-hover" id="table-marksheet">
+                    <thead class=" bg-success text-white">
+                    	<tr>
+                    		<th scope="col">STT</th>
+                    		<th scope="col">Họ và Tên</th>
+                    		<th scope="col">Toán</th>
+                    		<th scope="col">Lý</th>
+                    		<th scope="col">Hóa</th>
+                    		<th scope="col">Trung bình</th>
+                    	</tr>
+                    </thead>
+                    <tbody>
+                        
+                    </tbody>
+                </table>
+        </div>
+        
+        <div >
+            <div class="container-fluid text-center">
+            <!-- Nút này sắp xếp sinh viên theo tên -->
+            <button class="btn btn-success font-weight-bold col-sm3" onclick="sortName()">Sắp sếp theo tên</button>
+            <!-- Tính điểm trung bình môn học -->
+            <input class="btn btn-success m-3 font-weight-bold col-sm3" type="button" name="calculateMarksheet" value="Tính điểm trung bình" onclick="calculateAverage()">
+            <!-- Hiện thông tin học sinh giỏi, điếm trung bình >=8 -->
+            <input class="btn btn-success m-3 font-weight-bold col-sm3" type="button" name="calculateMarksheet" value="Xác định học sinh giỏi" onclick="findGoodStudent()">
+            <!-- Tìm sinh viên theo tên -->
+            <input type="text" placeholder="Tìm theo tên" id="search-input" class = "col-sm3" onkeyup="searchByName()">
+            </div>
+        </div>
+    </div>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+
+    <script src="js/score.js"></script>
+</body>
+</html>

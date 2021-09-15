@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <title>JavaScript programe</title>  
+</head>
+<body>
+
+    <p class="font-weight-bold">Click button to display an alert box</p>
+    <button class="btn btn-primary font-weight-bold" onclick="notify()">Try it</button>
+    <div id="infor" class =" font-weight-bold"style="display: none" >
+        <p id="name"></p>
+        <p id="province"></p>
+        <p id="city"></p>       
+        <p id="mobile"></p>
+        <p id="age"></p>
+        <p id="email"></p>
+        <p id="job"></p>
+        <p id="hobby"></p>
+        <p id="status"></p>
+
+        <button class = " btn btn-primary font-weight-bold"onclick="nextStep(document.getElementById('infor'))">Bước tiếp theo</button>
+    </div>
+
+    <script>
+        /**
+        * @description Hiển thị thông điệp chào mừng. Yêu cầu nhập thông tin cá nhân như tên, tuổi, nơi đang sống, điện thoại, sở thích... Hàm tính tuổi từ năm sinh, nếu năm sinh lớn hơn năm hiện tại, yêu cầu nhập lại. kết thúc chương trình hiển thị thông tin cá nhân được nhập vào và nút bước tiếp theo.
+        */
+
+        function notify() {
+            alert("Chào mừng bạn đến với ứng dụng Javascript đầu tiên");
+            const name = prompt("Hãy nhập tên của bạn") || "<em>Không xác định</em>";
+            const province = prompt("Bạn đến từ đâu") || "<em>Không xác định</em>";
+            const city = prompt("Hãy nhập thành phố bạn đang sống") || "<em>Không xác định</em>";
+            const mobile = prompt("Nhập số điện thoại của bạn") || "<em>Không xác định</em>";
+            var year = parseInt(prompt("Hãy nhập năm sinh"));
+            const mail = prompt("Nhập email của bạn") || "<em>Không xác định</em>";
+            const job = prompt("Nghề nghiệp của bạn là gì") || "<em>Không xác định</em>";
+            const hobby = prompt("Sở thích của bạn") || "<em>Không xác định</em>";
+            const status = prompt("Tình trạng hôn nhân") || "<em>Không xác định</em>";
+            var today = new Date();
+            const nextStep = document.getElementById("infor");
+            while (year > today.getFullYear()) {
+                year = parseInt(prompt("Hãy nhập lại năm sinh"));
+            }
+            document.getElementById("name").innerHTML = "Bạn tên là: " + name;
+            document.getElementById("province").innerHTML = "Bạn đến từ tỉnh: " + province;
+            document.getElementById("city").innerHTML = "Bạn đang sống tại: " + city;
+            document.getElementById("mobile").innerHTML = "Số điện thoại của bạn: " + mobile;
+            document.getElementById("age").innerHTML = 
+            "Tuổi của bạn là: " + ((today.getFullYear() - year) == 0 ? 1 : (today.getFullYear() - year));
+            document.getElementById("email").innerHTML = "Email của bạn: " + mail;
+            document.getElementById("job").innerHTML = "Nghề nghiệp: " + job;
+            document.getElementById("hobby").innerHTML = "Sở thích: " + hobby;
+            document.getElementById("status").innerHTML = "Tình trạng hôn nhân: " + status;
+            nextStep.style.display = "block";
+        }
+
+
+    </script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+</body>
+</html>
